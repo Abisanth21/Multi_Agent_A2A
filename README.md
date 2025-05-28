@@ -9,7 +9,7 @@ A sophisticated multi-agent system built using Agent-to-Agent (A2A) communicatio
 
 The system consists of three main microservices that communicate using the A2A protocol:
 
-### 1. Client Agent (Orchestrator) [1](#0-0) 
+### 1. Client Agent (Orchestrator) 
 
 The client agent acts as an intelligent router that:
 - Analyzes incoming user queries using a local LLM
@@ -17,7 +17,7 @@ The client agent acts as an intelligent router that:
 - Aggregates and returns responses to users
 - Runs on port 4004 by default
 
-### 2. Weather Agent [2](#0-1) 
+### 2. Weather Agent 
 
 Specialized agent for weather-related queries that:
 - Provides current weather information for any location
@@ -26,7 +26,7 @@ Specialized agent for weather-related queries that:
 - Uses LangGraph for ReAct pattern implementation
 - Runs on port 3000 by default
 
-### 3. Currency Agent [3](#0-2) 
+### 3. Currency Agent 
 
 Specialized agent for currency operations that:
 - Performs real-time currency conversions
@@ -43,7 +43,7 @@ Specialized agent for currency operations that:
 - **LangChain**: LLM integration and tool management
 - **FastAPI/Starlette**: Web server framework for agent endpoints
 
-### LLM Integration [4](#0-3) 
+### LLM Integration
 
 Custom wrapper for local LLM integration supporting:
 - Tool binding and function calling
@@ -51,7 +51,7 @@ Custom wrapper for local LLM integration supporting:
 - Timeout handling and error recovery
 - OpenAI-compatible API format
 
-### External APIs [5](#0-4) [6](#0-5) 
+### External APIs
 
 ## 📋 Prerequisites
 
@@ -122,7 +122,7 @@ cd client
 python -m client --host localhost --port 4004 --weather-agent http://localhost:3000 --currency-agent http://localhost:2000
 ```
 
-#### Method 2: Using CLI Interface [7](#0-6) 
+#### Method 2: Using CLI Interface  
 
 ```bash
 # Start the interactive CLI
@@ -146,33 +146,33 @@ python cli_interface.py
 
 ## 🔧 Configuration
 
-### Agent Ports [8](#0-7) 
+### Agent Ports 
 
 Default ports can be customized:
 - Client Agent: 4004
 - Weather Agent: 3000  
 - Currency Agent: 2000
 
-### LLM Endpoint [9](#0-8) 
+### LLM Endpoint  
 
 The system uses a local LLM endpoint. Update the endpoint URL in the LocalLLMChat class if needed.
 
 ## 🏗️ Agent Implementation Details
 
-### Weather Agent Tools [10](#0-9) 
+### Weather Agent Tools 
 
 The weather agent implements two main tools:
 - `get_current_weather`: Real-time weather data for any location
 - `get_weather_forecast`: Multi-day weather forecasts
 
-### Currency Agent Tools [11](#0-10) 
+### Currency Agent Tools 
 
 The currency agent provides three tools:
 - `get_exchange_rate`: Rate between two specific currencies
 - `convert_currency`: Convert amounts between currencies  
 - `get_multiple_rates`: Bulk rates from base currency
 
-### Intelligent Routing [12](#0-11) 
+### Intelligent Routing
 
 The client agent uses keyword-based routing with LLM analysis to determine the appropriate specialized agent for each query.
 
